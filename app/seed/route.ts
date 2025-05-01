@@ -110,8 +110,11 @@ export async function GET() {
       seedRevenue(),
     ]);
 
+    console.log("✅ Database seeded successfully"); // ← add this
+
     return Response.json({ message: "Database seeded successfully" });
   } catch (error) {
+    console.error("❌ Seeding failed:", error); // ← add this too for clarity
     return Response.json({ error }, { status: 500 });
   }
 }
